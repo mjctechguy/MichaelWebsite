@@ -1,0 +1,28 @@
+{
+  "name": "mjswebsite",
+  "version": "1.0.0",
+  "description": "My main website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjctechguy/MichaelWebsite.git"
+  },
+  "author": "Michael James Charles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjctechguy/MichaelWebsite/issues"
+  },
+  "homepage": "https://github.com/mjctechguy/MichaelWebsite#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-scss": "^1.4.0",
+    "gulp-uglifycss": "^1.0.8",
+    "node-font-awesome": "^1.0.2",
+    "node-normalize-scss": "^3.0.0"
+  }
+}
