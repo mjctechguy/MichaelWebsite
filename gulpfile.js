@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var fontAwesome = require('node-font-awesome');
-//var uglifycss = require('gulp-uglifycss');
+var uglifycss = require('gulp-uglifycss');
 
 gulp.task('fonts', function () {
     gulp.src(fontAwesome.fonts)
@@ -20,6 +20,15 @@ gulp.task('styles', function () {
         }))
 });
 
+// gulp.task('css', function () {
+//     gulp.src('./styles/css/*.css')
+//         .pipe(uglifycss({
+//             "maxLineLen": 80,
+//             "uglyComments": true
+//         }))
+//         .pipe(gulp.dest('./styles/css'));
+// });
+
 gulp.task('serve', function () {
     browserSync.init({
         server: {
@@ -33,27 +42,3 @@ gulp.task('serve', function () {
 
 
 gulp.task('default', ['fonts', 'styles', 'serve']);
-
-//Production
-
-gulp.task('HTMLProductions', function() {
-    gulp.src('*.html').pipe(gulp.dest('production'));
-})
-
-gulp.task('fontsProduction', function () {
-    gulp.src(fontAwesome.fonts)
-        .pipe(gulp.dest('./production/fonts/'));
-});
-
-gulp.task('stylesProduction', function () {
-    gulp.src('./styles/scss/main.scss')
-        .pipe(sass({
-            includePaths: [fontAwesome.scssPath, require('node-normalize-scss').includePaths]
-        }))
-        .pipe(gulp.dest('./production/styles/css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-});
-
-gulp.task('buildProduction', ['fontsProduction', 'HTMLProductions', 'stylesProduction']);
